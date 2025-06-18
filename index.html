@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>법률사전</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <style>
+     body,h1,h2,p,ul,ol{margin: 0}
+     footer{padding-top: 20px; padding-bottom: 40px; background: #1D1D1D;color: #818181;}
+  
+    :root {--bg-color: #000; --text-color: #fff; --accent-color: #00ffc3;}
+
+    * {box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', sans-serif;}
+
+    body {background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden;}
+
+    header {position: fixed; top: 0; left: 0; width: 100%; background-color: #000;
+      display: flex; justify-content: right; gap: 4rem; padding: 1.2rem; z-index: 1000;
+      border-bottom: 4px solid var(--accent-color); padding-right: 200px;}
+
+    header a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;}
+
+    header a:hover {color: var(--accent-color);}
+
+    section {padding: 100px 2rem 3rem; padding-bottom: 0px;}
+
+    .intro {
+      text-align:;
+      animation: fadeIn 1s ease-in-out;}
+
+    h1 {padding-top: 300px; font-size: 8rem; margin-bottom: 1rem; font-weight: 1000; color: #39ffca; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);}
+    h2{font-weight: 600; font-size: 3rem; color: #39ffca; padding-top: 70px; padding-bottom: 30px;line-height: 1.4; text-shadow: 3px 3px 10px #000;}
+    h3{font-weight: 500; font-size: 1.4rem; padding-top: 0px; padding-bottom: 50px; line-height: 1.9; margin: 0;}
+    h4 {padding-top: 100px; font-size: 5rem; margin-bottom: 1rem; color: #39ffca; }
+    h5 {padding-top: 70px; font-size: 7rem; margin-bottom: 1rem; font-weight: 500; color: #B5B5B5; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);}
+    p{font-weight: 400; font-size: 1.25rem; padding-top: 10px; padding-bottom: 30px; line-height: 1.9; margin: 0; max-width: 2000px;}
+    .wrap {width: 1000px; margin: auto;}
+
+
+    .center-spacing {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+    .left-spacing{padding-left: 920px;}
+    .right-spacing{padding-right: 600px; padding-left: 350px;}
+
+
+    
+    .bg-pic{background:url(noise.gif); background-size: cover; background-attachment: repeat; width: auto; padding-top: 180px; padding-bottom: 30px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic2{background:url(question.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top:0px; padding-bottom: 50px; border-radius: 0px; background-repeat: fixed;}
+    
+    .bg-pic3{background:url(road.gif); background-size: cover; background-attachment: repeat; width: auto; padding-top: 50px; padding-bottom: 100px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic4{background:url(roll.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top: 10px; padding-bottom: 30px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic5{background:url(flower.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top: 50px; padding-bottom: 100px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic6{background:url(road.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top: 50px; padding-bottom: 100px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic7{background:url(score.avif); background-size: cover; background-attachment: repeat; width: auto; padding-top: 70px; padding-bottom: 50px; border-radius: 0px; background-repeat: fixed; background-attachment: fixed;}
+    .bg-pic8{background:url(smell2.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top:0px; padding-bottom: 50px; border-radius: 0px; background-repeat: fixed;}
+    .bg-pic9{background:url(finish.jpg); background-size: cover; background-attachment: repeat; width: auto; padding-top:50px; padding-bottom: 100px; border-radius: 0px; background-repeat: fixed;}
+
+    
+
+    :root {--accent-color: #39ffca;}
+
+.legal-categories {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.5rem 1rem;
+  gap: 1rem;}
+.category-box {
+  flex: 0 0 auto;
+  width: 1100px;
+  height: 120px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #39ffca;
+  box-shadow: 0 0px 7px rgba(0, 255, 200, 0.8);}
+.category-box:hover {
+  transform: scale(1);}
+.box-text {
+  position: absolute;
+  color: #39ffca;
+  font-weight: 200;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(10px); 
+  transition: opacity 0.5s ease, transform 0.5s ease;}
+.category-box.active .box-text {
+  opacity: 1;
+  transform: translateY(0);}
+
+    quiz-box {
+    margin-top: 5rem;
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 0.5px solid var(--accent-color);}
+  .quiz-box ul {list-style: none; padding-top: 0px; padding-left: 400px; padding-right: 400px; margin: 0;}
+  .quiz-box li {
+    background: #222;
+    padding: 1.2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border: 3px solid #333;
+    border-radius: 8px;
+    transition: background 0.3s;}
+  .quiz-box li:hover {background: var(--accent-color); color: black;}
+
+/* 공통 말풍선 스타일 */
+.floating-balloon {
+  display: inline-block;
+  max-width: 500px;
+  padding: 1.5rem 1.5rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  position: relative;
+  font-family: Pretendard, sans-serif;
+  font-weight: 350;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 4px 10px rgba();
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* 왼쪽 꼬리 */
+.floating-balloon.balloon-left::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  padding-bottom: 0px;
+}
+
+/* 오른쪽 꼬리 */
+.floating-balloon.balloon-right::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+}
+
+/* 둥둥 애니메이션 */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0px); }
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-top: 20px solid #FFF;
+  border-bottom: 20px solid #FFF;
+  background: #FFF;
+  color: #000;
+  font-family: Pretendard, sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;}
+
+.marquee span {display: inline-block;padding-right: 2rem;}
+.marquee-left span {animation: scroll-left 7s linear infinite;}
+.marquee-right span {animation: scroll-right 7s linear infinite;}
+
+        @keyframes scroll-left {0% {transform: translateX(0%);} 100% {transform: translateX(-100%);}}
+
+        @keyframes scroll-right {0% {transform: translateX(-100%);} 100% {transform: translateX(0%);}}
+
+
+.image-stack {
+  position: relative;
+  width: 600px; /* 원하는 크기로 조절 */
+  height: 400px;
+  margin: 5rem auto;
+}
+
+.stacked-img {
+  border-radius: 10px;
+  position: absolute;
+  width: 340px;
+  height: auto;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* 개별 위치 조정 (무작위처럼 보이게) */
+.img1 { top: 20px; left: -180px; transform: rotate(-10deg); }
+.img2 { top: 60px; left: 60px; transform: rotate(8deg); }
+.img3 { top: 100px; left: 270px; transform: rotate(-10deg); }
+.img4 { top: 40px; left: 500px; transform: rotate(3deg); }
+
+/* 마우스 오버 시 확대 + 위로 올라오게 */
+.stacked-img:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+}
+
+.card-deck {
+  position: relative;
+  width: 277px;
+  height: 347px;
+  margin: 100px auto;
+  perspective: 1000px;
+}
+
+/* 기본 카드 상태 */
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-image: url('card.png'); /* 여기에 카드 이미지 경로 삽입 */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+  z-index: calc(8 - var(--i)); /* 카드 순서 유지 */
+}
+
+/* 마우스를 카드 덱에 올렸을 때 카드들을 회전 및 이동 */
+.card-deck:hover .card {
+  transform: 
+    rotate(calc(var(--i) * 13deg)) 
+    translateX(calc(var(--i) * -10px)) 
+    translateY(-10px) 
+    rotateZ(-40deg);
+}
+
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 70px; /* 기존 24px에서 더 넓게 */
+  padding: 20px 0; /* 위아래 여백 추가 */
+}
+
+    .image-box {
+      width: 900px;
+      height: 110px;
+      border-radius: 0px;
+      overflow: hidden;
+      background-color: #000;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .image-box:hover {
+      transform: scale(1.6);
+      box-shadow: 0 12px 24px rgba(); /* 약간의 네온민트 느낌 */
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+.siren-img {
+  border-radius: 10px;
+  width: 800px; /* 원하는 너비로 조정 */
+  height: 500px; /* 비율 유지하면서 높이 자동 조정 */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0s ease, transform 0s ease;
+}
+
+.siren-img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ #randomNumber {
+    font-size: 10rem;
+    color: red;
+    user-select: none;
+  }
+
+.photo-section {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 350px;
+  height: auto;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease;
+}
+
+.photo.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.photo.hide {
+  opacity: 0;
+  transform: translateX(100px); /* 오른쪽으로 사라짐 */
+}
+.blinking-text {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+  </style>
+
+
+    <script>
+
+       function isSectionAtCenter(section) {
+    const rect = section.getBoundingClientRect();
+    const sectionMiddle = rect.top + rect.height / 2;
+    const viewportMiddle = window.innerHeight / 2;
+
+    // 중앙 위치 허용 오차 설정 (±50px)
+    const tolerance = 150;
+
+    return Math.abs(sectionMiddle - viewportMiddle) <= tolerance;
+  }
+
+  function checkSectionInCenter() {
+    const section = document.querySelector('.siren-section');
+    const image = document.querySelector('.siren-img');
+
+    if (isSectionAtCenter(section)) {
+      image.classList.add('active');
+    } else {
+      image.classList.remove('active');
+    }
+  }
+
+  window.addEventListener('scroll', checkSectionInCenter);
+  window.addEventListener('load', checkSectionInCenter);
+  function toggleText(box) {box.classList.toggle("active");}</script>
+
+    <script>function checkAnswer(el, isCorrect) {el.style.background = isCorrect ? '#00ffc3' : '#ff4d4d'; el.style.color = '#000'; el.innerText += isCorrect ? ' ✅' : ' ❌'; [...el.parentElement.children].forEach(li => li.onclick = null);}</script>
+
+</head>
+<body class="grid-bg">
+  <header>
+    <a href="#intro"></a>
+    <a href="#intro"></a>
+    <a href="#quiz"></a>
+  </header>
+
+
+  <section class="center-spacing bg-pic">
+    <h1>LEGAL?? ILLEGAL??</h1>
+    <h3>about tricks that I took for granted in my daily life
+</h3>
+  </section>
+  <section class="">
+    <h3></h3>
+  </section>
+  <section><p></p></section>
+
+  <section id="intro" class="intro bg-pic2">
+  <h2 class="right-spacing">이게 불법이라고?</h2>
+  <div class="marquee marquee-left">
+    <span>냄새나는 사무실에 향수 뿌리기 인터넷에서 본 지식을 바탕으로 친구에게 법률 상담해주기 남의 집 담벼락의 꽃 냄새 맡기 자전거 타면서 음악듣기</span>
+    <span>냄새나는 사무실에 향수 뿌리기 인터넷에서 본 지식을 바탕으로 친구에게 법률 상담해주기 남의 집 담벼락의 꽃 냄새 맡기 자전거 타면서 음악듣</span>
+  </div>
+
+  <h2 class="left-spacing">이게 합법이라고?</h2>
+  <div class="marquee marquee-right">
+    <span>길거리에서 전자담배 피기 포장만 뜯고 미사용한 물건을 새상품이라고 하고 팔기 개인 간 금전 거래에서 이자 받기 개인적으로 CCTV 설치하기 경찰이 아닌 일반인이 체포하기 친구와 사적인 포커게임 하기</span>
+    <span>길거리에서 전자담배 피기 포장만 뜯고 미사용한 물건을 새상품이라고 하고 팔기 개인 간 금전 거래에서 이자 받기 개인적으로 CCTV 설치하기 경찰이 아닌 일반인이 체포하기 친구와 사적인 포커게임 하기</span>
+  </div>
+</section>
+
+<section>
+</section>
+
+  <section id="quiz" class="intro">
+    <p></p>
+    <p></p>
+  
+<div class="quiz-box right-spacing">
+    <p class="floating-balloon balloon-left">
+      <strong>Q1. 자전거를 타면서 노래를 들어도 될까?</strong>
+    </p>
+  </div>
+  <div class="quiz-box bg-pic3">
+    <ul class="center-spacing">
+      <li onclick="checkAnswer(this, false)">① 안전운전에 위배되니까 불법이다.</li>
+      <li onclick="checkAnswer(this, true)">② 차에서도 음악을 듣는데 당연히 된다.</li>
+    </ul>
+  </div>
+</section>
+  <section id="quiz" class="intro bg-pic4">
+
+<div class="image-stack">
+  <img src="music.jpg" class="stacked-img img1">
+  <img src="music2.gif" class="stacked-img img2">
+  <img src="music4.jpg" class="stacked-img img3">
+  <img src="music3.gif" class="stacked-img img4">
+</div>
+</section>
+<section>
+  <div class="legal-categories">
+  <div class="category-box center-spacing" onclick="toggleText(this)">
+    <div class="box-text">
+    자전거는 도로교통법상 차량으로 분류되며, 운전자는 [전방주시 의무], [안전운전 의무]가 있습니다.<br>따라서 음악을 듣다가 운전자의 의무를 다하지 못해 사고가 날 경우, 불법행위를 하였다고 간주될 수 있습니다.
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="quiz" class="intro">
+  <p></p>
+  <p></p>
+  <p></p>
+  <div class="quiz-box left-spacing">
+    <p class="floating-balloon balloon-right">
+      <strong>Q2. 지인과의 소액 내 포커게임도 불법일까?</strong>
+    </p>
+  </div>
+
+
+  <div class="quiz-box bg-pic3">
+    <ul class="center-spacing">
+      <li onclick="checkAnswer(this, false)">① 돈 내기가 들어간 도박 게임은 당연히 불법이다.</li>
+      <li onclick="checkAnswer(this, true)">② 소액이고 도박장이 아닌 가족/친구와 함께 한 것이니 불법이 아니다.</li>
+    </ul>
+  </div>
+
+<div class="card-deck">
+  <div class="card" style="--i: 0;"></div>
+  <div class="card" style="--i: 1;"></div>
+  <div class="card" style="--i: 2;"></div>
+  <div class="card" style="--i: 3;"></div>
+  <div class="card" style="--i: 4;"></div>
+  <div class="card" style="--i: 5;"></div>
+  <div class="card" style="--i: 6;"></div>
+  <div class="card" style="--i: 7;"></div>
+</div>
+
+
+  <div class="legal-categories">
+  <div class="category-box center-spacing" onclick="toggleText(this)">
+    <div class="box-text">
+      공공장소/도박 장소에서 돈을 걸고 포커를 한다며 불법이지만, 가족이나 친구와 집에서 소액의 내기를 한 것은 단순 오락행위로 보기도 합니다.<br>판례 예시: 대법원 2001도1238 "친목 도모를 위한 소액의 내기 골프, 화투놀이 등은 사회통념상 일탈행위로 볼 수 없고, 형법상 처벌 대상이 되지 않는다."
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="quiz" class="intro">
+    <p></p>
+    <p></p>
+    <p></p>
+  
+<div class="quiz-box right-spacing">
+    <p class="floating-balloon balloon-left">
+      <strong>Q3. 옆집 담벼락 꽃 냄새를 맡았다.</strong>
+    </p>
+  </div>
+
+  <div class="quiz-box bg-pic3">
+    <ul class="center-spacing">
+      <li onclick="checkAnswer(this, true)">① 꽃도 옆집의 소유물이니까 불법이 될 수 있다.</li>
+      <li onclick="checkAnswer(this, false)">② 겨우 꽃 냄새 맡았다고 불법인건 말이 안된다.</li>
+    </ul>
+  </div>
+</section>
+<section class="center-spacing bg-pic5">
+
+<p></p> 
+ <div class="image-row">
+    <div class="image-box center-spacing">
+      <img src="wall2.jpg" alt="image1">
+    </div>
+    <div class="image-box center-spacing">
+      <img src="wall2.jpg" alt="image2">
+    </div>
+    <div class="image-box center-spacing">
+      <img src="wall2.jpg" alt="image3">
+    </div>
+    <div class="image-box center-spacing">
+      <img src="wall2.jpg" alt="image4">
+    </div>
+  </div>
+</section>
+<section>
+  <div class="legal-categories">
+  <div class="category-box center-spacing" onclick="toggleText(this)">
+    <div class="box-text">
+    꽃을 맡기 위한 행위였다고 하더라도 타인의 주거공간에 신체 일부가 들어간다면 '평온한 주거생활을 방해'하였다고 인정되어 주거침입으로 처벌 가능.<br>대법원 1995. 9. 15. 선고 94도2561 판결에서는 야간에 타인의 집 창문을 열고 얼굴을 들이미는 행위가 주거침입죄의 기수로 인정되었다.
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="quiz" class="intro">
+    <p></p>
+    <p></p>
+    <p></p>
+  
+<div class="quiz-box left-spacing">
+    <p class="floating-balloon balloon-right">
+      <strong>Q4. 사무실에 너무 냄새가 나서 향수를 뿌렷다.</strong>
+    </p>
+  </div>
+
+  <div class="quiz-box bg-pic3">
+    <ul class="center-spacing">
+      <li onclick="checkAnswer(this, true)">① 향수를 싫어하는 사람도 있는데 이것도 폭행이 될 수 있다.</li>
+      <li onclick="checkAnswer(this, false)">② 직접적으로 뿌리는 것도 아니고 전혀 문제가 되지 않는다.</li>
+    </ul>
+  </div>
+ 
+</section>
+<section id="photo-reveal-section" class="photo-section bg-pic8">
+  <div class="photo-container">
+    <img src="smell.png" alt="사진 1" class="photo hidden">
+    <img src="smell.png" alt="사진 2" class="photo hidden">
+    <img src="smell.png" alt="사진 3" class="photo hidden">
+  </div>
+  <script>
+  const section = document.querySelector('#photo-reveal-section');
+  const photos = document.querySelectorAll('.photo');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 보일 때 동시에 등장
+        photos.forEach(photo => photo.classList.add('show'));
+      } else {
+        // 사라질 때 다시 숨김
+        photos.forEach(photo => photo.classList.remove('show'));
+      }
+    });
+  }, {
+    threshold: 0.9 // 섹션의 50% 이상이 화면에 보일 때 트리거
+  });
+
+  observer.observe(section);
+</script>
+</section>
+
+<section>
+  <div class="legal-categories">
+  <div class="category-box center-spacing" onclick="toggleText(this)">
+    <div class="box-text">
+    타인의 감각을 자극하는 행위는 폭행죄로 인정될 수 있다. 대법원 2016도9302 판결에 따르면 “폭행이란 반드시<br>피해자의 신체에 접촉함을 필요로 하는 것은 아니고, 그 불법성은 행위의 목적과 의도, 행위 당시의 정황, 행위의 태양과<br>종류, 피해자에게 주는 고통의 유무와 정도 등을 종합하여 판단하여야 한다.”하였고 이에 따라 폭행죄로 인정될 수 있다.
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="quiz" class="intro">
+    <p></p>
+    <p></p>
+    <p></p>
+  
+<div class="quiz-box right-spacing ">
+    <p class="floating-balloon balloon-left">
+      <strong>Q5. 밤에 산책하다가 웃긴 친구의 사진을 몰래 찍었다.</strong>
+    </p>
+  </div>
+
+  <div class="quiz-box bg-pic3">
+    <ul class="center-spacing">
+      <li onclick="checkAnswer(this, true)">① 밤이고 얼굴 식별이 되지 않을 정도로 흔들린 사진들은 괜찮다.</li>
+      <li onclick="checkAnswer(this, false)">② 남의 사진을 허가 없이 찍은건 무조건적으로 불법이다.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="siren-section bg-pic6">
+  <p></p>
+  <p></p>
+  <div class="wrap center-spacing">
+    <img src="siren2.gif" class="siren-img" alt="사이렌 이미지">
+  </div>
+</section>
+<section>
+  <div class="legal-categories">
+  <div class="category-box center-spacing" onclick="toggleText(this)">
+    <div class="box-text">
+    불법 촬영에서 해상도나 영상의 품질이 낮아 피해자가 특정되기 어렵거나 신체 부위가 식별되지 않는다면, 범죄 설립을 인정하지 않을 수도 있다.<br>대법원 판례(예: 2019도12345 등)에서는 ‘촬영물이 피해자의 신체를 명확히 식별할 수 있는지’, ‘성적 수치심을 느낄 정도의 촬영물인지’를<br>중점적으로 보기 때문에 불법이라 판단되지 않을 가능도 높다.
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></section>
+<section class="center-spacing bg-pic9">
+  <h5 class="blinking-text">FINISH</h5>
+</section>
+<section class="center-spacing"><p>.</p><p>.</p><p>.</p></section>
+<section class="center-spacing bg-pic7">
+  <h2 class="center-spacing">WHAT IS YOUR SCORE?</h2>
+  <p></p>
+  <p></p>
+<div id="randomNumber">100</div>
+
+<script>
+  const display = document.getElementById('randomNumber');
+  
+  function showRandomCountdown() {
+    // 0부터 100까지 랜덤 숫자
+    const randomNum = Math.floor(Math.random() * 101);
+    display.textContent = randomNum;
+  }
+  
+  setInterval(showRandomCountdown, 200); // 0.5초마다 숫자 변경
+</script>
+<p></p>
+  <p></p>
+</section>
+
+
+
+ <section class="">
+        <footer class="center-spacing">© Web Publishing . Cho-Eunsol</footer>
+         </section>
+</body>
+</html>
